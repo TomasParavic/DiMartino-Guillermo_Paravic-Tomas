@@ -8,6 +8,7 @@
                 <p class="text-center fs-4 w-50">Disfruta de una sección exclusiva de comentarios en tiempo real
                     mientras miras todo el fin de semana de Fórmula 1.</p>
             </div>
+    <Posteos></Posteos>
   </main>
   <Footer></Footer>
 </template>
@@ -15,5 +16,6 @@
 <script setup>
 import Nav from './components/Navegador.vue';
 import Footer from './components/Footer.vue';
+import Posteos from './components/Posteos.vue';
 </script>
 

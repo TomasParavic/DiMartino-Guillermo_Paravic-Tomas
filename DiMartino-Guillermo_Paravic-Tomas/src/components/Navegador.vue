@@ -17,21 +17,32 @@
                             Usuario
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnUser">
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#login">Ingresar</a></li>
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#register">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="#" @click="showModalLogin">Login</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"data-bs-target="#register">Registrarse</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <Login></Login>
 </template>
 
-<script>
+<script setup>
 
+import { onMounted } from 'vue';
 import Login from './Login.vue';
+
+let modalLogin ;
+
+onMounted(() => {
+    modalLogin = new bootstrap.Modal(document.getElementById('login'))
+    });
+    
+    const showModalLogin = () => {
+        modalLogin.show();
+    }
+
 
 
 </script>
