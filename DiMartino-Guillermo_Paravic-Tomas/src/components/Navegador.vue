@@ -1,6 +1,3 @@
-<script setup>
-
-</script>
 
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,6 +28,13 @@
         </div>
     </nav>
 </template>
+
+<script>
+
+import Login from './Login.vue';
+
+
+</script>
 
 <style scoped>
 .navbar{

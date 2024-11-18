@@ -1,11 +1,11 @@
 <template>
-    <div class="modal fade p-0" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+    <div  v-if="OpenClose" class="modal fade p-0" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form class="loginForm">
                     <div class="modal-header">
                         <h3 class="modal-title fs-5" id="loginLabel">Login</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        <button type="button" class="btn-close" @click="OpenCloseFun()" 
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ingresar</button>
+                        <button type="button" @click="OpenCloseFun()" class="btn btn-secondary" >Cerrar</button>
+                        <button type="submit" class="btn btn-primary" >Ingresar</button>
                     </div>
                 </form>
             </div>
@@ -31,8 +31,27 @@
 </template>
 
 <script>
-import {ref} from 'vue';
-import firebase from 'firebase';
+export default({
+        props:{
+            visible:Boolean,
+        },
+        data(){
+            return{
+                OpenClose:this.visible
+            }
+        },
+        methods:{
+            OpenCloseFun(){
+                this.OpenClose= !this.OpenClose;
+            }
+        },
+        watch:{
+            visible: function(newVal, oldVal){
+                this.OpenClose=newVal;
+            }
+        }
+    
+})
 
 
 </script>
