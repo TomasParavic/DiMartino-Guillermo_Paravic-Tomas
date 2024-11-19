@@ -23,7 +23,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                             Cerrar
                         </button>
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ingresar</button>
                     </div>
                 </form>
             </div>
@@ -48,6 +48,7 @@ export default {
             this.loading = true;
             try {
                 await login({ ...this.user });
+                this.user = { email: "", password: "" };
                 console.log("Sesión iniciada con éxito.");
             } catch (error) {
                 console.error('Error al iniciar sesión:', error);

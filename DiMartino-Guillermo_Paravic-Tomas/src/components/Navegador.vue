@@ -17,7 +17,6 @@
                             {{loggedUser.email}}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnUser">
-                                <li><a class="dropdown-item" href="#">Editar</a></li>
                                 <li>
                                     <form @submit.prevent="handleLogout">
                                         <button type="submit" class="dropdown-item">Cerrar sesión</button>
@@ -47,9 +46,7 @@
 </template>
 
 <script>
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/index.js";
-import { signOut } from "firebase/auth";
+import { logout, suscribeToAuth } from "../firebase/auth"; 
 import Login from "./Login.vue";
 import Registrar from "./Registrar.vue";
 export default {
@@ -75,27 +72,15 @@ export default {
             this.modalRegister.show();
         },
         handleLogout(){
-            signOut(auth);
-            console.log("Sesión cerrada con éxito.");
+           logout();
+           console.log("Usuario deslogueado");
         }
     },
     mounted() {
         this.modalLogin = new bootstrap.Modal(document.getElementById("login"));
         this.modalRegister = new bootstrap.Modal(document.getElementById("register"));
 
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                this.loggedUser = {
-                    id: user.uid,
-                    email: user.email,
-                };
-            } else {
-                this.loggedUser = {
-                    id: null,
-                    email: null,
-                };
-            }
-        });
+        suscribeToAuth(newUserData => this.loggedUser = newUserData);
     }
 };
 </script>
