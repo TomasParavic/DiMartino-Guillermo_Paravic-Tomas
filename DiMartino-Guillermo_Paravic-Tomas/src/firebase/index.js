@@ -4,15 +4,13 @@ import {getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCWkSy3ZXUdhxH5uTUGp_pDM3MOIo1qSas",
-  authDomain: "chat-f1-c4318.firebaseapp.com",
-  projectId: "chat-f1-c4318",
-  storageBucket: "chat-f1-c4318.firebasestorage.app",
-  messagingSenderId: "12931774693",
-  appId: "1:12931774693:web:4eae4b73221d1cbffbbc0c",
-  measurementId: "G-JF6B05Y43G"
+  apiKey: "AIzaSyDblJXF4qM2XtcUP4ToaA41_r2a9Pec-f0",
+  authDomain: "parcial02-clientes-web-dwn4av.firebaseapp.com",
+  projectId: "parcial02-clientes-web-dwn4av",
+  storageBucket: "parcial02-clientes-web-dwn4av.firebasestorage.app",
+  messagingSenderId: "69284764963",
+  appId: "1:69284764963:web:86f6a079082e7aacf4c096"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
